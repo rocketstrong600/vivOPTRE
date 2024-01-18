@@ -28,12 +28,10 @@ class CfgVehicles
 
     	};
     };
-    class UserActions;
     class UserActions {
       class PelLift_LoadVehicle;
 			class PelLift_LoadVehicle
 			{
-				userActionID=6;
 				displayName="Load Vehicle old";
 				displayNameDefault="Load Vehicle old";
 				textToolTip="Load Vehicle old";
