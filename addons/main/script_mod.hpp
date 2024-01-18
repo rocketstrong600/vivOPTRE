@@ -1,5 +1,6 @@
 // COMPONENT should be defined in the script_component.hpp and included BEFORE this hpp
 #define PREFIX alcor
+#define MAINPREFIX z
 
 // TODO: Consider Mod-widse or Component-narrow versions  (or both, depending on wishes!)
 // We will use the DATE for the BUILD# in the format YYMMDD - VM
