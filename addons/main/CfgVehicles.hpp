@@ -29,13 +29,7 @@ class CfgVehicles
     	};
     };
     class UserActions {
-      class PelLift_LoadVehicle;
-			class PelLift_LoadVehicle
-			{
-				displayName="Load Vehicle old";
-				displayNameDefault="Load Vehicle old";
-				textToolTip="Load Vehicle old";
-			};
+      delete PelLift_LoadVehicle;
     };
   };
 };
