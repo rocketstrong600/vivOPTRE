@@ -16,7 +16,7 @@ class CfgVehicles
     		maxLoadMass = 200000; // KG
     		cargoAlignment[] = { "center", "front" };
 
-    		cargoSpacing[] = { 0, 0.1, 0 };
+    		cargoSpacing[] = { 0, 0, 0 };
 
     		exits[] = { {0,-7,-3.5} };
 
