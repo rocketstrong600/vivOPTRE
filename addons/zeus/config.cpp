@@ -4,7 +4,7 @@
 class CfgPatches {
     class ADDON {
         name = CSTRING(Component);
-        units[] = {};
+        units[] = {"ADDON_Module_LoadVehicle"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
@@ -14,14 +14,5 @@ class CfgPatches {
     };
 };
 
-class CfgFactionClasses
-{
-	class NO_CATEGORY;
-	class ADDON_ai_manager: NO_CATEGORY
-	{
-		displayName = "Alcor AI Managment";
-	};
-};
-
-
+#include "CfgFunctions.hpp"
 #include "CfgVehicles.hpp"
