@@ -8,16 +8,19 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "cba_common",
-            "ace_common",
-            "OPTRE_Vehicles",
-            "OPTRE_Vehicles_Pelican",
-            "OPTRE_Vehicles_Air",
-            "OPTRE_Vehicles_Tracked",
-            "OPTRE_ACE_Compat",
+            "A3_Modules_F"
         };
         VERSION_CONFIG;
     };
+};
+
+class CfgFactionClasses
+{
+	class NO_CATEGORY;
+	class ADDON_ai_manager: NO_CATEGORY
+	{
+		displayName = "Alcor AI Managment";
+	};
 };
 
 

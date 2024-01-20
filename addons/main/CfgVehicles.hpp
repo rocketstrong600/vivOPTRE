@@ -3,7 +3,12 @@ class CfgVehicles
   class Helicopter;
   class Helicopter_Base_F;
   class Helicopter_Base_H;
-  class OPTRE_Pelican_F;
+  class OPTRE_Pelican_F {
+    class UserActions
+    {
+      class PelLift_LoadVehicle;
+    };
+  };
   class OPTRE_Pelican_F: Helicopter_Base_H
   {
     class VehicleTransport
@@ -29,7 +34,12 @@ class CfgVehicles
     	};
     };
     class UserActions {
-      delete PelLift_LoadVehicle;
+      class PelLift_LoadVehicle
+      {
+        displayName="Load Vehicle Old";
+        displayNameDefault="Load Vehicle Old";
+        textToolTip="Load Vehicle Old";
+      };
     };
   };
 };
