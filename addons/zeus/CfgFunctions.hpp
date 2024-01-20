@@ -1,19 +1,10 @@
-class CfgFactionClasses
-{
-	class NO_CATEGORY;
-	class alcor_zeus_ai_manager: NO_CATEGORY
-	{
-		displayName = "Alcor AI Managment";
-	};
-};
-
 class CfgFunctions
 {
-	class alcor_zeus
+	class ADDON
 	{
-		class alcor_zeus_ai_manager
+		class GVAR(AI_Manager)
 		{
-			file = "\alcor_zeus\functions";
+			file = QPATHTOF(function\);
 			class moduleLoadVehicle {};
 		};
 	};

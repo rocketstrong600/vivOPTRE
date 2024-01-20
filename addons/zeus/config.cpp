@@ -4,7 +4,7 @@
 class CfgPatches {
     class ADDON {
         name = CSTRING(Component);
-        units[] = {"alcor_zeus_Module_LoadVehicle"};
+        units[] = {QGVAR(ModuleLoadVehicle)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
@@ -15,4 +15,5 @@ class CfgPatches {
 };
 
 #include "CfgFunctions.hpp"
+#include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"

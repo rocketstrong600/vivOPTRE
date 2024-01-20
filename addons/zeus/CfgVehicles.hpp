@@ -22,19 +22,18 @@ class CfgVehicles
 	};
 
 
-  class alcor_zeus_Module_LoadVehicle : Module_F
+  class GVAR(ModuleLoadVehicle) : Module_F
   {
-    scope=2;
     displayName = "Load Vehicle in cargo";
-    catagory = "alcor_zeus_AI_Manager";
-    function = "alcor_zeus_fnc_moduleLoadVehicle";
+    catagory = QGVAR(AI_Manager);
+    function = QFUNC(moduleLoadVehicle);
     curatorCanAttach = 1;
 
     class Attributes : AttributesBase
     {
       class Units : Units
 			{
-				property = "alcor_zeus_Module_Load_Vehicle_Units";
+				property = QGVAR(ModuleLoadVehicle_Units);
 			};
     };
   };
