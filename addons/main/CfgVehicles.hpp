@@ -10,7 +10,7 @@ class CfgVehicles
     {
     	class Carrier
     	{
-    		cargoBayDimensions[] = { {4,-0.5,0.8}, {-4,-14,-2.5} };
+    		cargoBayDimensions[] = { {4,-0.5,0.8}, {-4,-13,-2.5} };
 
     		disableHeightLimit = 1;
     		maxLoadMass = 200000; // KG

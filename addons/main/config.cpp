@@ -14,7 +14,10 @@ class CfgPatches {
             "OPTRE_Vehicles_Pelican",
             "OPTRE_Vehicles_Air",
             "OPTRE_Vehicles_Tracked",
-            "OPTRE_ACE_Compat"
+            "OPTRE_ACE_Compat",
+            "A3_Data_F",
+            "A3_UI_F_Bootcamp",
+            "A3_UI_F"
         };
         VERSION_CONFIG;
     };
@@ -22,3 +25,4 @@ class CfgPatches {
 
 
 #include "CfgVehicles.hpp"
+#include "CfgMisc.hpp"
