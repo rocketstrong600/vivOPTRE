@@ -1,7 +1,7 @@
 class CfgFactionClasses
 {
 	class NO_CATEGORY;
-	class ADDON_ai_manager: NO_CATEGORY
+	class alcor_zeus_ai_manager: NO_CATEGORY
 	{
 		displayName = "Alcor AI Managment";
 	};
@@ -9,11 +9,11 @@ class CfgFactionClasses
 
 class CfgFunctions
 {
-	class ADDON
+	class alcor_zeus
 	{
-		class ADDON_ai_manager
+		class alcor_zeus_ai_manager
 		{
-			file = "\ADDON\functions";
+			file = "\alcor_zeus\functions";
 			class moduleLoadVehicle {};
 		};
 	};

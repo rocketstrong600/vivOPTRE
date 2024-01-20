@@ -22,19 +22,19 @@ class CfgVehicles
 	};
 
 
-  class ADDON_Module_LoadVehicle : Module_F
+  class alcor_zeus_Module_LoadVehicle : Module_F
   {
     scope=2;
     displayName = "Load Vehicle in cargo";
-    catagory = "ADDON_AI_Manager";
-    function = "ADDON_fnc_moduleLoadVehicle";
+    catagory = "alcor_zeus_AI_Manager";
+    function = "alcor_zeus_fnc_moduleLoadVehicle";
     curatorCanAttach = 1;
 
     class Attributes : AttributesBase
     {
       class Units : Units
 			{
-				property = "ADDON_Module_Load_Vehicle_Units";
+				property = "alcor_zeus_Module_Load_Vehicle_Units";
 			};
     };
   };
