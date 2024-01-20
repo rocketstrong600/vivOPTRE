@@ -2,7 +2,7 @@ class CfgFunctions
 {
 	class ADDON
 	{
-		class GVAR(AI_Manager)
+		class GVAR(AI)
 		{
 			file = QPATHTOF(function\);
 			class moduleLoadVehicle {};
