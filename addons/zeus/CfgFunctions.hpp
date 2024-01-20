@@ -4,8 +4,8 @@ class CfgFunctions
 	{
 		class ADDON_ai_manager
 		{
-			file = "";
-			class LoadVehicle {};
+			file = "\ADDON\functions";
+			class moduleLoadVehicle {};
 		};
 	};
 };

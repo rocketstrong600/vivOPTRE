@@ -9,4 +9,4 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_MAIN
 #endif
 
-#include "z\alcor\addons\main\script_macros.hpp"
+#include "\z\alcor\addons\main\script_macros.hpp"
