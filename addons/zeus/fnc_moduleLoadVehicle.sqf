@@ -40,7 +40,7 @@ if (not alive _vehicle) exitwith {
         private _canCargo = _vehicle canVehicleCargo _target;
         // returns array [willFitintoCurrentvehicle, willFitintoEmptyvehicle]
         
-        if ((not _canCargo select 0) and (not _canCargo select 1)) exitwith {
+        if ((not (_canCargo select 0)) and (not (_canCargo select 1))) exitwith {
             [objNull, "vehicle can not be transported"] call BIS_fnc_showCuratorFeedbackMessage;
         };
         

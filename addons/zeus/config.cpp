@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            QGVAR(main),
+            "alcor_main",
             "A3_Modules_F"
         };
         VERSION_CONFIG;
