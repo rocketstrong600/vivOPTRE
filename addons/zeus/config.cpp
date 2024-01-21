@@ -8,12 +8,13 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
+            QGVAR(main),
             "A3_Modules_F"
         };
         VERSION_CONFIG;
     };
 };
 
-#include "CfgFunctions.hpp"
-#include "CfgFactionClasses.hpp"
+#include "CfgEventHandlers.hpp"
+#include "CfgClasses.hpp"
 #include "CfgVehicles.hpp"

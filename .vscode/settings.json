@@ -1,0 +1,5 @@
+{
+    "cmake.configureOnOpen": false,
+    "sqf.enableCBA": true,
+    "sqf.enableACE3": true,
+}

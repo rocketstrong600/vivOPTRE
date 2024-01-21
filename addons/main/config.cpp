@@ -8,7 +8,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "cba_common",
+            "cba_main",
             "ace_common",
             "OPTRE_Vehicles",
             "OPTRE_Vehicles_Pelican",

@@ -1,8 +1,9 @@
 class CfgFactionClasses
 {
-	class NO_CATEGORY;
-	class GVAR(AI): NO_CATEGORY
+	class GVAR(AI)
 	{
 		displayName = "Alcor AI";
+    priority = 2;
+    side = 7;
 	};
 };
