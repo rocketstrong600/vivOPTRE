@@ -61,9 +61,6 @@ if (not alive _vehicle) exitwith {
         // AI in Target will drive into transport. Transport may need land
         if (count _targetcrew > 0) exitwith {
             // if AI in Transport is flying then land
-            if (isEngineOn _vehicle) then {
-                // [_vehicleGroup, _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
-            };
             
             private _wpa = _targetGroup addWaypoint [_vehicle, -1];
             _wpa waypointAttachVehicle(_vehicle);
@@ -73,15 +70,14 @@ if (not alive _vehicle) exitwith {
         // No AI crew in Target but crew in transport.
         if ((count _targetcrew == 0) and (count _vehiclecrew > 0)) exitwith {
             // if AI in Transport is flying then land
-            if (isEngineOn _vehicle) then {
-                // [_vehicleGroup, _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
-            };
             
+            private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
+            waitUntil { scriptDone _landwp };
             private _wpb = _vehicleGroup addWaypoint [_target, -1];
             _wpb waypointAttachVehicle(_target);
             _wpb setwaypointType "GETIN";
             private _wpc = _vehicleGroup addWaypoint [_vehicle, -1];
-            _wpc waypointAttachVehicle(_target);
+            _wpc waypointAttachVehicle(_vehicle);
             _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
             private _wpd = _vehicleGroup addWaypoint [_vehicle, -1];
             _wpd waypointAttachVehicle(_vehicle);
