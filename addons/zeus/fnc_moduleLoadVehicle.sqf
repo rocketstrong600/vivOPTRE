@@ -66,9 +66,9 @@ if (not alive _vehicle) exitwith {
             };
             
             private _wpa = _targetGroup addWaypoint [_vehicle, -1];
-            private _wpa waypointAttachVehicle(_vehicle);
-            private _wpa setwaypointDescription "Get vehicle in transport";
-            private _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
+            _wpa waypointAttachVehicle(_vehicle);
+            _wpa setwaypointDescription "Get vehicle in transport";
+            _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
         };
         
         // No AI crew in Target but crew in transport.
@@ -79,9 +79,9 @@ if (not alive _vehicle) exitwith {
             };
             
             private _wpb = _vehicleGroup addWaypoint [_target, -1];
-            private _wpb waypointAttachVehicle(_vehicle);
-            private _wpb setwaypointDescription "Get pickup in transport";
-            private _wpb setwaypointType "VEHICLEINVEHICLEGETIN";
+            _wpb waypointAttachVehicle(_vehicle);
+            _wpb setwaypointDescription "Get pickup in transport";
+            _wpb setwaypointType "VEHICLEINVEHICLEGETIN";
 
         };
     },
