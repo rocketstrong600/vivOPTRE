@@ -27,7 +27,7 @@ if (not alive _vehicle) exitwith {
         
         private _mousePosAGL = ASLtoAGL _mousePosASL;
         
-        private _target = (nearestobjects [_mousePosAGL, ["landvehicle", "Air", "Ship"], 15, true]) select 0;
+        private _target = (nearestobjects [_mousePosAGL, ["landvehicle", "Air", "Ship"], 15, true]) param [0, objNull];
         
         if (isNull _target) exitwith {
             [objNull, "Target not found or is not vehicle"] call BIS_fnc_showCuratorFeedbackMessage;
@@ -74,7 +74,7 @@ if (not alive _vehicle) exitwith {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
 
-            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_vehicle];
+            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
             _wpa setwaypointDescription "Get out of transport";
             _wpa setwaypointType "GETOUT";
             
