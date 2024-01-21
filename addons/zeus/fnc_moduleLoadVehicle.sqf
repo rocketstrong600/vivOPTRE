@@ -51,52 +51,38 @@ if (not alive _vehicle) exitwith {
         if ((count _targetcrew == 0) and (count _vehiclecrew == 0)) exitwith {
             [objNull, "No crew to command"] call BIS_fnc_showCuratorFeedbackMessage;
         };
+
+        private _vehicleGroup = group (_vehiclecrew select 0);
+        private _targetGroup = group (_targetcrew select 0);
         
         // decide how ai is going to make vehicle get in Transport vehicle
         
         // AI in Target is already able to drive into Transport
         // AI in Target will drive into transport. Transport may need land
-        if (not isNull (_targetcrew select 0)) exitwith {
+        if (count _targetcrew > 0) exitwith {
             // if AI in Transport is flying then land
             if (isEngineOn _vehicle) then {
-                [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
+                // [_vehicleGroup, _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
             
-            _wpa = (group (_targetcrew select 0)) addWaypoint [_vehicle, -1];
-            _wpa waypointAttachVehicle(_vehicle);
-            _wpa setwaypointDescription "Get vehicle in transport";
-            _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
+            private _wpa = _targetGroup addWaypoint [_vehicle, -1];
+            private _wpa waypointAttachVehicle(_vehicle);
+            private _wpa setwaypointDescription "Get vehicle in transport";
+            private _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
         };
         
         // No AI crew in Target but crew in transport.
         if ((count _targetcrew == 0) and (count _vehiclecrew > 0)) exitwith {
             // if AI in Transport is flying then land
             if (isEngineOn _vehicle) then {
-                [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
+                // [_vehicleGroup, _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
+            
+            private _wpb = _vehicleGroup addWaypoint [_target, -1];
+            private _wpb waypointAttachVehicle(_vehicle);
+            private _wpb setwaypointDescription "Get pickup in transport";
+            private _wpb setwaypointType "VEHICLEINVEHICLEGETIN";
 
-            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
-            _wpa setwaypointDescription "Get out of transport";
-            _wpa setwaypointType "GETOUT";
-            
-            _wpb = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
-            _wpb waypointAttachVehicle(_target);
-            _wpb setwaypointDescription "Get in pickup";
-            _wpb setwaypointType "GETIN";
-            
-            _wpc = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wpc waypointAttachVehicle(_vehicle);
-            _wpc setwaypointDescription "Get pickup in transport";
-            _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
-            
-            _wpd = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wpd setwaypointDescription "Get out of pickup";
-            _wpd setwaypointType "GETOUT";
-
-            _wpe = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wpe waypointAttachVehicle(_vehicle);
-            _wpe setwaypointDescription "Get in transport";
-            _wpe setwaypointType "GETIN";
         };
     },
     "select vehicle to pickup"
