@@ -67,7 +67,6 @@ if (not alive _vehicle) exitwith {
             
             private _wpa = _targetGroup addWaypoint [_vehicle, -1];
             _wpa waypointAttachVehicle(_vehicle);
-            _wpa setwaypointDescription "Get vehicle in transport";
             _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
         };
         
@@ -80,8 +79,10 @@ if (not alive _vehicle) exitwith {
             
             private _wpb = _vehicleGroup addWaypoint [_target, -1];
             _wpb waypointAttachVehicle(_vehicle);
-            _wpb setwaypointDescription "Get pickup in transport";
-            _wpb setwaypointType "VEHICLEINVEHICLEGETIN";
+            _wpb setwaypointType "GETIN";
+            private _wpc = _vehicleGroup addWaypoint [_vehicle, -1];
+            _wpc waypointAttachVehicle(_target);
+            _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
 
         };
     },
