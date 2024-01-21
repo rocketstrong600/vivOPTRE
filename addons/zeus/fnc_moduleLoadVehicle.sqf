@@ -68,7 +68,7 @@ if (not alive _vehicle) exitwith {
         };
         
         // No AI crew in Target but crew in transport.
-        if ((count _targetcrew == 0) and ((count _vehiclecrew > 0) ) exitwith {
+        if ((count _targetcrew == 0) and (count _vehiclecrew > 0)) exitwith {
             // if AI in Transport is flying then land
             if (isEngineOn _vehicle) then {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
