@@ -61,27 +61,38 @@ if (not alive _vehicle) exitwith {
         // AI in Target will drive into transport. Transport may need land
         if (count _targetcrew > 0) exitwith {
             // if AI in Transport is flying then land
-            
-            private _wpa = _targetGroup addWaypoint [_vehicle, -1];
-            _wpa waypointAttachVehicle(_vehicle);
-            _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
+            [_vehicle, _target, _vehicleGroup, _targetGroup] spawn {
+                params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
+                
+                private _wpa = _targetGroup addWaypoint [_vehicle, -1];
+                _wpa waypointAttachVehicle(_vehicle);
+                _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
+            }
         };
         
         // No AI crew in Target but crew in transport.
         if ((count _targetcrew == 0) and (count _vehiclecrew > 0)) exitwith {
             // if AI in Transport is flying then land
-            
-            private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
-            waitUntil { scriptDone _landwp };
-            private _wpb = _vehicleGroup addWaypoint [_target, -1];
-            _wpb waypointAttachVehicle(_target);
-            _wpb setwaypointType "GETIN";
-            private _wpc = _vehicleGroup addWaypoint [_vehicle, -1];
-            _wpc waypointAttachVehicle(_vehicle);
-            _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
-            private _wpd = _vehicleGroup addWaypoint [_vehicle, -1];
-            _wpd waypointAttachVehicle(_vehicle);
-            _wpd setwaypointType "GETIN";
+            [_vehicle, _target, _vehicleGroup, _targetGroup] spawn {
+                params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
+
+                private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
+                waitUntil { sleep 1; scriptDone _landwp };
+
+                private _wpb = _vehicleGroup addWaypoint [_target, -1];
+                _wpb waypointAttachVehicle(_target);
+                _wpb setwaypointType "GETIN";
+                waitUntil { sleep 1; unitReady leader _vehicleGroup};
+
+                private _wpc = _vehicleGroup addWaypoint [_vehicle, -1];
+                _wpc waypointAttachVehicle(_vehicle);
+                _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
+                waitUntil { sleep 1; unitReady leader _vehicleGroup};
+
+                private _wpd = _vehicleGroup addWaypoint [_vehicle, -1];
+                _wpd waypointAttachVehicle(_vehicle);
+                _wpd setwaypointType "GETIN";
+            };
         };
     },
     "select vehicle to pickup"
