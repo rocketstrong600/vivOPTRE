@@ -48,7 +48,7 @@ if (not alive _vehicle) exitwith {
         // array of crew
         private _targetcrew = crew _target;
         
-        if (isNull _targetcrew and isNull _vehiclecrew) exitwith {
+        if (isNull (_targetcrew select 0) and isNull (_vehiclecrew select 0)) exitwith {
             [objNull, "No crew to command"] call BIS_fnc_showCuratorFeedbackMessage;
         };
         
