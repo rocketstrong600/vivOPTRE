@@ -78,12 +78,14 @@ if (not alive _vehicle) exitwith {
             };
             
             private _wpb = _vehicleGroup addWaypoint [_target, -1];
-            _wpb waypointAttachVehicle(_vehicle);
+            _wpb waypointAttachVehicle(_target);
             _wpb setwaypointType "GETIN";
             private _wpc = _vehicleGroup addWaypoint [_vehicle, -1];
             _wpc waypointAttachVehicle(_target);
             _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
-
+            private _wpd = _vehicleGroup addWaypoint [_vehicle, -1];
+            _wpd waypointAttachVehicle(_vehicle);
+            _wpd setwaypointType "GETIN";
         };
     },
     "select vehicle to pickup"
