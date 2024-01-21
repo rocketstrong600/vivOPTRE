@@ -7,7 +7,7 @@ class CfgVehicles
   class GVAR(ModuleLoadVehicle) : Module_F
   {
     displayName = "AI Load Vehicle in Cargo";
-    catagory = QGVAR(AI);
+    category = QGVAR(AI);
     function = QFUNC(moduleLoadVehicle);
 	  functionPriority = 1;
     isGlobal = 1;

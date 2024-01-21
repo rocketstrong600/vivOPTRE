@@ -37,7 +37,7 @@ if (not alive _vehicle) exitwith {
             [objNull, "Target must be alive"] call BIS_fnc_showCuratorFeedbackMessage;
         };
         
-        private _canCargo = _vehicle canvehicleCargo _target;
+        private _canCargo = _vehicle canVehicleCargo _target;
         // returns array [willFitintoCurrentvehicle, willFitintoEmptyvehicle]
         
         if ((not _canCargo select 0) and (not _canCargo select 1)) exitwith {
