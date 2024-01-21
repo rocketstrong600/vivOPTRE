@@ -74,13 +74,13 @@ if (not alive _vehicle) exitwith {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
 
-            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
+            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_vehicle];
             _wpa setwaypointDescription "Get out of transport";
             _wpa setwaypointType "GETOUT";
             
             _wpb = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
             _wpb setwaypointDescription "Get in pickup";
-            _wpb setwaypointType "GETIN";
+            _wpb setwaypointType "GETIN NEAREST";
             
             _wpc = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
             _wpc setwaypointDescription "Get pickup in transport";
@@ -92,7 +92,7 @@ if (not alive _vehicle) exitwith {
 
             _wpe = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
             _wpe setwaypointDescription "Get in transport";
-            _wpe setwaypointType "GETIN";
+            _wpe setwaypointType "GETIN NEAREST";
         };
     },
     "select vehicle to pickup"
