@@ -48,7 +48,7 @@ if (not alive _vehicle) exitwith {
         // array of crew
         private _targetcrew = crew _target;
         
-        if (isNull (_targetcrew select 0) and isNull (_vehiclecrew select 0)) exitwith {
+        if ((count _targetcrew == 0) and (count _vehiclecrew == 0)) exitwith {
             [objNull, "No crew to command"] call BIS_fnc_showCuratorFeedbackMessage;
         };
         
@@ -64,11 +64,11 @@ if (not alive _vehicle) exitwith {
             
             _wp = (group (_targetcrew select 0)) addWaypoint [_vehicle, -1];
             _wp setwaypointDescription "Get vehicle in transport";
-            _wp setwaypointType "vehicleinvehicleGETin";
+            _wp setwaypointType "VEHICLEINVEHICLEGETIN";
         };
         
         // No AI crew in Target but crew in transport.
-        if ((isNull (_targetcrew select 0)) and (not isNull (_vehiclecrew select 0))) exitwith {
+        if ((count _targetcrew == 0) and ((count _vehiclecrew > 0) ) exitwith {
             // if AI in Transport is flying then land
             if (isEngineOn _vehicle) then {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
@@ -76,15 +76,15 @@ if (not alive _vehicle) exitwith {
             
             _wp = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
             _wp setwaypointDescription "Get in target";
-            _wp setwaypointType "GETin";
+            _wp setwaypointType "GETIN";
             
             _wptwo = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
             _wptwo setwaypointDescription "Get vehicle in transport";
-            _wptwo setwaypointType "vehicleinvehicleGETin";
+            _wptwo setwaypointType "VEHICLEINVEHICLEGETIN";
             
             _wptwo = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
             _wptwo setwaypointDescription "Get in transport";
-            _wptwo setwaypointType "GETin";
+            _wptwo setwaypointType "GETIN";
         };
     },
     "select vehicle with Cargo"
