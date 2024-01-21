@@ -62,9 +62,9 @@ if (not alive _vehicle) exitwith {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
             
-            _wp = (group (_targetcrew select 0)) addWaypoint [_vehicle, -1];
-            _wp setwaypointDescription "Get vehicle in transport";
-            _wp setwaypointType "VEHICLEINVEHICLEGETIN";
+            _wpa = (group (_targetcrew select 0)) addWaypoint [_vehicle, -1];
+            _wpa setwaypointDescription "Get vehicle in transport";
+            _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
         };
         
         // No AI crew in Target but crew in transport.
@@ -73,19 +73,27 @@ if (not alive _vehicle) exitwith {
             if (isEngineOn _vehicle) then {
                 [group (_vehiclecrew select 0), _mousePosAGL, _vehicle] spawn BIS_fnc_wpland;
             };
+
+            _wpa = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
+            _wpa setwaypointDescription "Get out of transport";
+            _wpa setwaypointType "GETOUT";
             
-            _wp = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
-            _wp setwaypointDescription "Get in target";
-            _wp setwaypointType "GETIN";
+            _wpb = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
+            _wpb setwaypointDescription "Get in pickup";
+            _wpb setwaypointType "GETIN";
             
-            _wptwo = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wptwo setwaypointDescription "Get vehicle in transport";
-            _wptwo setwaypointType "VEHICLEINVEHICLEGETIN";
+            _wpc = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
+            _wpc setwaypointDescription "Get pickup in transport";
+            _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
             
-            _wptwo = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wptwo setwaypointDescription "Get in transport";
-            _wptwo setwaypointType "GETIN";
+            _wpd = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
+            _wpd setwaypointDescription "Get out of pickup";
+            _wpd setwaypointType "GETOUT";
+
+            _wpe = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
+            _wpe setwaypointDescription "Get in transport";
+            _wpe setwaypointType "GETIN";
         };
     },
-    "select vehicle with Cargo"
+    "select vehicle to pickup"
 ] call ace_zeus_fnc_getmoduleDestination;
