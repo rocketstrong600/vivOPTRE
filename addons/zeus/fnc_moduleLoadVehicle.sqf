@@ -60,10 +60,19 @@ if (not alive _vehicle) exitwith {
         // AI in Target is already able to drive into Transport
         // AI in Target will drive into transport. Transport may need land
         if (count _targetcrew > 0) exitwith {
-            // if AI in Transport is flying then land
             [_vehicle, _target, _vehicleGroup, _targetGroup] spawn {
                 params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
-                
+
+                // if AI in Transport is flying then land near transport
+                if ((canMove _vehicle) and (not isTouchingGround _vehicleGroup)) then {
+                    waitUntil { sleep 1; unitReady leader _vehicleGroup};
+
+                    private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
+                    waitUntil { sleep 1; scriptDone _landwp };
+                };
+
+                waitUntil { sleep 1; unitReady leader _targetGroup};
+
                 private _wpa = _targetGroup addWaypoint [_vehicle, -1];
                 _wpa waypointAttachVehicle(_vehicle);
                 _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
@@ -76,8 +85,15 @@ if (not alive _vehicle) exitwith {
             [_vehicle, _target, _vehicleGroup, _targetGroup] spawn {
                 params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
 
-                private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
-                waitUntil { sleep 1; scriptDone _landwp };
+                // if AI in Transport is flying then land near transport
+                if ((canMove _vehicle) and (not isTouchingGround _vehicleGroup)) then {
+                    waitUntil { sleep 1; unitReady leader _vehicleGroup};
+
+                    private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
+                    waitUntil { sleep 1; scriptDone _landwp };
+                };
+
+                waitUntil { sleep 1; unitReady leader _vehicleGroup};
 
                 private _wpb = _vehicleGroup addWaypoint [_target, -1];
                 _wpb waypointAttachVehicle(_target);
