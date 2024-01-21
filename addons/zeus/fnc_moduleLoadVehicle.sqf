@@ -63,7 +63,7 @@ if (not alive _vehicle) exitwith {
             };
             
             _wpa = (group (_targetcrew select 0)) addWaypoint [_vehicle, -1];
-            _wpa = waypointAttachVehicle(_vehicle);
+            _wpa waypointAttachVehicle(_vehicle);
             _wpa setwaypointDescription "Get vehicle in transport";
             _wpa setwaypointType "VEHICLEINVEHICLEGETIN";
         };
@@ -80,12 +80,12 @@ if (not alive _vehicle) exitwith {
             _wpa setwaypointType "GETOUT";
             
             _wpb = (group (_vehiclecrew select 0)) addWaypoint [_target, -1];
-            _wpb = waypointAttachVehicle(_target);
+            _wpb waypointAttachVehicle(_target);
             _wpb setwaypointDescription "Get in pickup";
             _wpb setwaypointType "GETIN";
             
             _wpc = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wpc = waypointAttachVehicle(_vehicle);
+            _wpc waypointAttachVehicle(_vehicle);
             _wpc setwaypointDescription "Get pickup in transport";
             _wpc setwaypointType "VEHICLEINVEHICLEGETIN";
             
@@ -94,7 +94,7 @@ if (not alive _vehicle) exitwith {
             _wpd setwaypointType "GETOUT";
 
             _wpe = (group (_vehiclecrew select 0)) addWaypoint [_vehicle, -1];
-            _wpe = waypointAttachVehicle(_vehicle);
+            _wpe waypointAttachVehicle(_vehicle);
             _wpe setwaypointDescription "Get in transport";
             _wpe setwaypointType "GETIN";
         };
