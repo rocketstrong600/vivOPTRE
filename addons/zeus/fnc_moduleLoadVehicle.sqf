@@ -64,7 +64,7 @@ if (not alive _vehicle) exitwith {
                 params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
 
                 // if AI in Transport is flying then land near transport
-                if ((canMove _vehicle) and (not isTouchingGround _vehicleGroup)) then {
+                if ((canMove _vehicle) and (not isTouchingGround _vehicle)) then {
                     waitUntil { sleep 1; unitReady leader _vehicleGroup};
 
                     private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
@@ -86,7 +86,7 @@ if (not alive _vehicle) exitwith {
                 params ["_vehicle", "_target", "_vehicleGroup", "_targetGroup"];
 
                 // if AI in Transport is flying then land near transport
-                if ((canMove _vehicle) and (not isTouchingGround _vehicleGroup)) then {
+                if ((canMove _vehicle) and (not isTouchingGround _vehicle)) then {
                     waitUntil { sleep 1; unitReady leader _vehicleGroup};
 
                     private _landwp = [_vehicleGroup, position _target] spawn BIS_fnc_wpland;
